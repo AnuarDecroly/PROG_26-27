@@ -139,7 +139,7 @@ public class Main {
         double numero = scan.nextDouble();
         System.out.println("El numero es positivo :" +(numero >= 0));
         System.out.println("El numero es negativo :" +(numero < 0));
-        
+
 
 
     }
