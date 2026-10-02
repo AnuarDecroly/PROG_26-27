@@ -14,5 +14,6 @@ public class ForExample {
             suma2 = suma2 + i;
         }
         System.out.println("La suma total es:" + suma2);
+
     }
 }
