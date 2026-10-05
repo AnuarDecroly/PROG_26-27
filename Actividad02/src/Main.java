@@ -132,6 +132,7 @@ y nos muestra el mensaje de “Eres mayor de edad” solo si lo somos.
 
     //Pasa un segundo
     segundos ++;
+
     if(segundos >= 60) {
         segundos = 0;
         minutos ++;
@@ -144,6 +145,141 @@ y nos muestra el mensaje de “Eres mayor de edad” solo si lo somos.
         }
     }
     IO.println(hora + ":" + minutos + ":" + segundos);
+
+    /*EJERCICIO 10: Realiza un programa que lea 10 números no nulos
+    y luego muestre un mensaje de si ha leído algún número negativo o no.
+    */
+    IO.println("EJERCICIO 10");
+    sc = new Scanner(System.in);
+
+    int contador  = 0;
+    boolean hayNegativos = false;
+    while(contador <= 10){
+        IO.println("Introduce un numero no nulo: ");
+        int numero = sc.nextInt();
+        if(numero !=0){
+            contador++;
+            if(numero < 0) {
+                hayNegativos = true;
+            }
+        }
+    }
+
+    IO.println("Se han introducido numeros negativos: "+hayNegativos);
+
+    /*EJERCICIO 11: Realiza un programa que lea 10 números no nulos y
+    luego muestre un mensaje indicando cuántos son positivos y cuantos negativos. .
+    */
+    IO.println("EJERCICIO 11");
+    sc = new Scanner(System.in);
+
+    int contador2  = 0;
+    int negativos = 0, positivos = 0;
+    while(contador <= 10){
+        IO.println("Introduce un numero no nulo: ");
+        int numero = sc.nextInt();
+        if(numero !=0){
+            contador++;
+            if(numero < 0) {
+                negativos++;
+            }
+            else{
+                positivos++;
+            }
+        }
+    }
+
+    IO.println("Se han introducido "+ negativos + " numeros negativos y " + positivos);
+
+    /*EJERCICIO 12: Realiza un programa que lea una secuencia de números no nulos
+    hasta que se introduzca un 0, y luego muestre si ha leído algún número negativo,
+    cuantos positivos y cuantos negativos.
+    */
+    IO.println("EJERCICIO 12");
+    sc = new Scanner(System.in);
+
+    int numero = 0;
+    int negativos2 = 0, positivos2 = 0;
+    boolean hayNegativos2 = false;
+
+    do{
+        IO.println("Introduce un numero");
+        numero = sc.nextInt();
+        if(numero < 0) {
+            negativos2++;
+            hayNegativos2 = true;
+        }
+        else if(numero > 0){
+            positivos2++;
+        }
+
+    } while(numero != 0);
+
+
+    if(hayNegativos2){
+        IO.println("Se han introducido algun numero negativo");
+    }
+    IO.println("Se han introducido "+ negativos + " numeros negativos y " + positivos);
+
+/*
+    EJERCICIO 13: Realiza un programa que calcule y escriba la suma y
+    el producto de los 10 primeros números naturales.
+ */
+    IO.println("EJERCICIO 13");
+    sc = new Scanner(System.in);
+
+    IO.println("Introduce hasta que numero quieres calcular la suma y el producto");
+    int numF = sc.nextInt();
+
+    double suma = 0;
+    double producto = 1;
+    for(int i = 1; i <= numF; i++) {
+        suma = suma + i ;
+        producto = producto * i;
+    }
+    IO.println("La suma es : " + suma);
+    IO.println("El producto es : " + producto);
+
+/*
+    EJERCICIO 14: Escribe un programa que calcula el salario neto semanal de un trabajador
+    en función del número de horas trabajadas y la tasa de impuestos de acuerdo
+    a las siguientes hipótesis:
+    • Las primeras 35 horas se pagan a tarifa normal.
+    • Las horas que pasen de 35 se pagan a 1,5 veces la tarifa normal.
+    • Las tasas de impuestos son:
+    • Los primeros 500 euros son libres de impuestos.
+    • Los siguientes 400 tienen un 25% de impuestos.
+    • Los restantes un 45% de impuestos.
+    Escribir nombre, salario bruto, tasas y salario neto.
+ */
+    IO.println("EJERCICIO 14");
+    sc = new Scanner(System.in);
+    IO.println("Introduzca las horas semanales trabajadas: ");
+    double horasTrabajadas = Math.abs(sc.nextDouble());
+    double tarifa = 10.0;
+    double salarioNeto = 0, salabrioBruto = 0;
+
+
+    if(horasTrabajadas <= 35){
+        salabrioBruto = tarifa * horasTrabajadas;
+    }else{
+        salabrioBruto = tarifa * 35 + (horasTrabajadas - 35) * tarifa * 1.5;
+    }
+    IO.println("El salario bruto es : " + salabrioBruto);
+    double impuestos = 0;
+    if(salabrioBruto <= 500){
+        salarioNeto = salabrioBruto;
+    }else if(salabrioBruto <= 900){
+        impuestos = (salabrioBruto - 500) * 0.25;
+        salarioNeto = salabrioBruto - impuestos;
+    }
+    else{
+        impuestos = 400 * 0.25 + (salabrioBruto - 900) * 0.45;
+        salarioNeto = salabrioBruto - impuestos;
+    }
+
+    IO.println("La salario neto es : " + salarioNeto);
+    IO.println("Las tasas son : " + impuestos);
 
 
 }
