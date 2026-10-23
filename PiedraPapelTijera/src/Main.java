@@ -5,6 +5,7 @@ void main() {
     final String [] jugadas = {"P", "L", "T"};
     String jugada = "s";
     Scanner sc = new Scanner(System.in);
+    int contadorJ = 0, contadorO = 0;
 
     do{
         IO.println("Bienvenido al juego de Piedra, Papel, Tijera de Decroly");
@@ -22,31 +23,39 @@ void main() {
             else if (jugada.equalsIgnoreCase("p")){
                     if(jugadaOrdenador.equalsIgnoreCase("t")){
                         IO.println("Gana jugador: Piedra gana a tijera: " + jugada + " vs " + jugadaOrdenador);
+                        contadorJ++;
                     }
                     else if(jugadaOrdenador.equalsIgnoreCase("l")){
                         IO.println("Gana ordenador: Piedra gana a papel: " + jugada + " vs " + jugadaOrdenador);
+                        contadorO++;
                     }
             }
             else if (jugada.equalsIgnoreCase("l")){
                 if(jugadaOrdenador.equalsIgnoreCase("p")){
                     IO.println("Gana jugador: Piedra gana a papel: " + jugada + " vs " + jugadaOrdenador);
+                    contadorJ++;
                 }
-                else if(jugadaOrdenador.equalsIgnoreCase("l")){
+                else if(jugadaOrdenador.equalsIgnoreCase("t")){
                     IO.println("Gana ordenador: Tijera gana a papel: " + jugada + " vs " + jugadaOrdenador);
+                    contadorO++;
                 }
             }
 
             else if (jugada.equalsIgnoreCase("t")){
                 if(jugadaOrdenador.equalsIgnoreCase("l")){
                     IO.println("Gana jugador: Tijera gana a papel: " + jugada + " vs " + jugadaOrdenador);
+                    contadorJ++;
                 }
                 else if(jugadaOrdenador.equalsIgnoreCase("p")){
                     IO.println("Gana ordenador: Piedra gana a tijera: " + jugada + " vs " + jugadaOrdenador);
+                    contadorO++;
                 }
             }
 
         }
         else if(jugada.equalsIgnoreCase("s")){
+            IO.println("El jugador ha ganado "+ contadorJ + " partidas");
+            IO.println("El Ordenador ha ganado "+ contadorO + " partidas");
             IO.println("Se va a cerrar el juego");
         }
         else{
