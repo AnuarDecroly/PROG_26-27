@@ -1,11 +1,16 @@
+package Model;
+
 public class Persona {
 
+    private static int contadorPoblacionMundial = 0;
+
     // Atributos de una clase
-    private String nombre;
-    private String apellidos;
+    protected int id;
+    protected String nombre;
+    protected String apellidos;
     private int edad;
     private String dni;
-    private String genero;
+    String genero;
 
     //Constructor
     public Persona(String nombre, String apellidos, int edad){
@@ -14,6 +19,8 @@ public class Persona {
         this.edad = edad;
         this.dni = "";
         this.genero = "No especificado";
+        this.id = contadorPoblacionMundial;
+        contadorPoblacionMundial ++;
     }
 
     // Puedo definir mas de un constructor
@@ -23,6 +30,7 @@ public class Persona {
         this.edad = edad;
         this.dni = dni;
         this.genero = "No especificado";
+        contadorPoblacionMundial ++;
     }
 
     //Constructor con todos los parametros
@@ -32,6 +40,7 @@ public class Persona {
         this.edad = edad;
         this.dni = dni;
         this.genero = genero;
+        contadorPoblacionMundial ++;
     }
 
     //Constructor por defecto
@@ -85,6 +94,19 @@ public class Persona {
 
     //Metodo interno para validar DNI
     private boolean isDniOk(String dni){
+
         return dni.matches("[0-9]{7,8}[a-zA-Z]");
+    }
+
+    private String letraDni(int dni){
+        int resto = dni % 23;
+
+        String [] letras = {"T", "R", "W","A","G","M","Y", "F", "P", "D","X", "B"};
+
+        return letras[resto];
+    }
+
+    public static int PoblacionMundial(){
+        return contadorPoblacionMundial;
     }
 }
