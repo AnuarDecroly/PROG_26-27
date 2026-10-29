@@ -71,12 +71,6 @@ public class Biblioteca {
     }
 
     //Insertar libros en la biblioteca
-
-
-    //Eliminar libro
-
-
-    //Buscar libro por ISBN
     public boolean insertarLibro(Libro libro){
         boolean resultado = false;
 
@@ -103,13 +97,10 @@ public class Biblioteca {
 //            this.nLibrosActuales++;
 //            resultado = true;
 //
-
         }
 
         return resultado;
     }
-
-
 
     //Mostrar informacion de la biblioteca
     public String infoBiblioteca(){
@@ -125,6 +116,81 @@ public class Biblioteca {
     }
 
     //Mostrar informacion de todos los libros almacenados
+    public String infoLibrosBiblioteca(){
+        String infoLibros = "";
+        //Recorrer el array
+        for(int i = 0; i < this.nLibrosActuales; i++){
+            infoLibros += this.libros[i].infoLibro() + "\n\n";
+            //infoLibros = infoLibros + this.libros[i].infoLibro() + "\n\n";
+        }
+        return infoLibros;
+    }
+
+    //Eliminar libro
+    public boolean eliminarLibro(Libro libro){
+        boolean resultado = false;
+        if(libro != null){
+            int index = -1;
+            for(int  i= 0; i < this.nLibrosActuales; i++){
+                if(this.libros[i] != null){
+                    if(this.libros[i].equals(libro.getIsbn())){
+                        index = i;
+                        break; // eliminar primera ocurrencia, en este caso el ISBN es unico
+                    }
+                }
+            }
+
+            if(index != -1){
+                this.libros[index] = null;
+                resultado = true;
+
+                //Recolocar el array
+//                for(int i = index; i < this.nLibrosActuales; i++){
+//                    this.libros[i] = this.libros[i+1];
+//                }
+//                this.libros[this.nLibrosActuales-1] = null;
+//                this.nLibrosActuales--;
+
+                //Segunda forma
+                this.libros[index] = this.libros[this.nLibrosActuales-1];
+                this.libros[this.nLibrosActuales-1] = null;
+                this.nLibrosActuales--;
+            }
+        }
+
+        return resultado;
+    }
+
+
+    //Buscar libro por ISBN
+    public Libro getLibroByIsbn(String isbn){
+        Libro libro = null;
+        if(isbn != null && !isbn.isEmpty()){
+            for(int i =0; i < this.nLibrosActuales; i++){
+                if(this.libros[i].getIsbn().equals(isbn)){
+                    libro = this.libros[i];
+                    return libro;
+                }
+            }
+        }
+        return libro;
+    }
+
+    //Buscar libro por titulo (el titulo debe de ser unico)
+    public Libro getLibroByTitulo(String titulo){
+        Libro libro = null;
+        if(titulo != null && !titulo.isEmpty()){
+            for(int i =0; i < this.nLibrosActuales; i++){
+                if(this.libros[i].getTitulo().equals(titulo)){
+                    libro = this.libros[i];
+                    return libro;
+                }
+            }
+        }
+        return libro;
+    }
+
+
 
     //Ampliar dimension del array
     private void ampliarDimensionBiblioteca(){
