@@ -1,3 +1,4 @@
+import model.Genero;
 import model.Libro;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -7,6 +8,8 @@ void main() {
     // to see how IntelliJ IDEA suggests fixing it.
 
     Libro l1 = new Libro("122323nn","El señor de los anillos","JRR Tolkien");
+
+    l1.setGenero(Genero.FANTASIA);
 
     //IO.println(l1.getAutor());
 

@@ -1,3 +1,4 @@
+import model.Genero;
 import model.Libro;
 
 public class Biblioteca {
@@ -8,7 +9,6 @@ public class Biblioteca {
     private String direccion;
     private String email;
     private String nTelefono;
-
     //Atributos de la clase relacionados con la Coleccion de Libros
     private Libro[] libros;
     private int nLibrosActuales;
@@ -21,7 +21,6 @@ public class Biblioteca {
         this.direccion = direccion;
         this.email = email;
         this.nTelefono = nTelefono;
-
         this.libros = new Libro[this.dimensionInicial];
         this.nLibrosActuales = 0;
     }
