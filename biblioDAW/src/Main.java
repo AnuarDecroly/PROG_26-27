@@ -14,4 +14,10 @@ void main() {
     //IO.println(l1.getAutor());
 
     IO.println(l1.infoLibro());
+
+
+    LocalDateTime miFecha = LocalDateTime.ofEpochSecond(1794556766L,0,ZoneOffset.UTC);
+    IO.println(miFecha.toString());
+
+    IO.println(miFecha.toEpochSecond(ZoneOffset.UTC));
 }
