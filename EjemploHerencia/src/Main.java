@@ -23,11 +23,11 @@ void main() {
 
     for(int i=0; i < decrolyComunidad.length; i++){
         if(decrolyComunidad[i] != null){
-            if(decrolyComunidad[i] instanceof Persona){
+            if(decrolyComunidad[i] instanceof Alumno){
                 IO.println(decrolyComunidad[i]);
             }
 
-
+            //decrolyComunidad[i].getClass().getName().equals("Alumno")
         }
     }
 
