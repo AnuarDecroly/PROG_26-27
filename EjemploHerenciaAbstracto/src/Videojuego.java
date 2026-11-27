@@ -1,4 +1,4 @@
-public class Videojuego extends Producto{
+public class Videojuego extends Producto implements Stock{
 
     private String PEG;
     private String plataforma;
@@ -42,5 +42,26 @@ public class Videojuego extends Producto{
         sb.append("Plataforma = ").append(plataforma).append("\n");
         sb.append("Desarrolladora = ").append(desarrolladora).append("\n");
         return sb.toString();
+    }
+
+
+    @Override
+    public int getStock() {
+        return 0;
+    }
+
+    @Override
+    public void setStock(int stock) {
+
+    }
+
+    @Override
+    public void disableItem() {
+
+    }
+
+    @Override
+    public void enableItem() {
+
     }
 }

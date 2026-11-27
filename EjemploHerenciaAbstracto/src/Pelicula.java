@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Pelicula extends Producto{
+public class Pelicula extends Producto implements Stock{
 
     private String genero;
     private int duracion;
@@ -74,4 +75,23 @@ public class Pelicula extends Producto{
     }
 
 
+    @Override
+    public int getStock() {
+        return 0;
+    }
+
+    @Override
+    public void setStock(int stock) {
+
+    }
+
+    @Override
+    public void disableItem() {
+
+    }
+
+    @Override
+    public void enableItem() {
+
+    }
 }

@@ -51,7 +51,11 @@ public abstract class Producto {
         sb.append("Nombre: ").append(this.nombre).append("\n");
         sb.append("Descripcion: ").append(this.descripcion).append("\n");
         sb.append("Precio: ").append(this.precio).append("\n");
+
+        //INFORMACION EN String
         return sb.toString();
+
+        // NEVER NEVER NEVER PRINTLN
     }
 
 
